@@ -41,19 +41,19 @@ Based on these numerical facts, it is interesting to explore the future of trave
   
     - What are the characteristics of changes in the number of bookings across all continents (North America, South America, Europe, Asia and Australia) before and after the pandemic?
   
-    - As Airbnb claims, will Airbnb be used as a remote work location in the future at an increasing rate? Even if such use is currently increasing, is it sustainable?
+    - As Airbnb claims, will Airbnb be used as a remote work place in the future at an increasing rate? Even if such use is currently increasing, is it sustainable?
     
     - When Airbnb started to show recover in terms of booking rate and what trigged that?
 
 ## Data Source
-I have colleced data from Inside Airbnb, which provides publicly Airbnb platform datasets such as occupancy rate, listing geolocation, reviews, booking calender, and etc.
+I have colleced data from Inside Airbnb, which provides publicly available Airbnb platform datasets such as occupancy rate, listing geolocation, reviews, booking calender, and etc.
 The data is updated monthly by country, allowing users to understand the current state of Airbnb based on the latest information. Inside Airbnb is not officially owned and operated; it is a project started by analyst Murray Cox and designer John Morris. The site's data collection methods use the following technologies：D3, Crossfilter, dc.js, Leaflet, Bootstrap, jQuery, Select2, Python, PostgreSQL。
 
 * **How many observations (rows) are in your data?**
 There is slightly difference between each country dataset but around 12000 rows.
 
 * **How many features (columns) are in the data?**
-There is slightly difference between each country dataset but the largest file is <lisgints> and it has 16 columns as follows.
+There is slightly difference between each country dataset but the largest file is *<listings>* and it has 16 columns as follows.
 
 1. id
 2. name
@@ -76,6 +76,15 @@ There is slightly difference between each country dataset but the largest file i
 * **What questions (from above) can be answered using the data in this dataset?**
 
     - We can analyze booking rate changes before and after pandemic. Then, we can take a look at house type and explore if they have any characteristics. We also compare country-by-country variation separately to infer how Airbnb was used in response to each country's response and situation during the pandemic. Additionally, we derive the average number of nights per user and analyze whether Airbnb's use for remote work is increasing.
+    
+    - Each dataset has the basically same file that is *<calender>*, *<listings>*, *<neighbourhoods>*, *<reviews>*.
+
+* **calender.csv**, Information on whether or not the listing is available for booking and how much it is priced.
+* **listings.csv**, Contains information about the property and the host who owns the property.　
+* **neighbourhoods.csv**, Contains property information based on its geolocation
+* **reviews**, numerical data how many reviews each property received and the rate.
+
+  - Basic information we can find out from the calendar which month's or week's price is high. It is possible to know the details of the registered properties and the correlation of features.
     
 ### Dataset 1: [Inside Airbnb, Seattle Washington, United States](http://insideairbnb.com/seattle/)
 ### Dataset 2: [Inside Airbnb, Tokyo, Japan](http://insideairbnb.com/tokyo/)
