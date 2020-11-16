@@ -72,7 +72,7 @@ There is slightly difference between each country dataset but the largest file i
 16. availability_365
 
 
-- What questions (from above) can be answered using the data in this dataset?
+* **What questions (from above) can be answered using the data in this dataset?**
 
     - We can analyze booking rate changes before and after pandemic. Then, we can take a look at house type and explore if they have any characteristics. We also compare country-by-country variation separately to infer how Airbnb was used in response to each country's response and situation during the pandemic. Additionally, we derive the average number of nights per user and analyze whether Airbnb's use for remote work is increasing.
     
