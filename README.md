@@ -4,12 +4,13 @@
 - The COVID-19 pandemic led to a sharp drop in Airbnb users, and the company was on the verge of a cash shortage due to the cancellation process.
 - Simultaneously with the layoffs, the company raised funds and changed its platform concept from short term rental to mid-long term rental.
 - As remote work becomes more common for keeping social distancing, Airbnb users have seen a surge in its use as a workspace, with mid-July marking the first time in four months that more than one million room bookings were made. However, it is unsure that it will last and be sustainable.
+- It is worth exploring current Airbnb raw data to 
 
 ## Company Overview
 Airbnb is a U.S.-based startup in the private accommodation business and one of the world's largest marketplaces, with over 7 million places to stay and tens of thousands of original experiences, all provided by local hosts. Airbnb, which helps people achieve economic independence, has helped millions of hospitality entrepreneurs worldwide work on their spare rooms and the things they love to do and have helped promote communities through tourism. Airbnb is a company that connects people around the world and fosters community and trust.
 
 ## Domain of Interest
-- Why are you interested in this field/domain?
+* **Why are you interested in this field/domain?**
 
 The COVID-19 pandemic has hit our company, Airbnb, a private accommodation business that has been synonymous with the sharing economy, hard. The company has laid off about 25% of its workforce in response to the volatile home-stay, travel, and hospitality markets. Approximately 1,900 of the current 7,500 employees are affected to prepare the company for a significant shift in its business going forward. Also, since COVID-19, Airbnb has been forced to deal with free housing for medical professionals and 100% refunds for those who cancel trips. Despite raising $1 billion in dead financing, absolute profit declines in its core business have led to inevitable layoffs and the need to change its core business model to fit the new era.
 
@@ -26,7 +27,7 @@ After identifying the data on Airbnb's availability and bookings at this stage, 
 Based on these numerical facts, it is interesting to explore the future of travel, the potential of Airbnb and the potential in the hospitality business in the era of new travel new normal.
 
 
-- What other examples of data driven project have you found related to this domain (share at least 3)?
+* **What other examples of data driven project have you found related to this domain (share at least 3)?**
   - [Airdna](https://www.airdna.co/), Airdna has a daily crawl and database of over 2 million Airbnb properties in 4,250 cities worldwide. The problem is the accuracy of the data. The problem with letting the crawler collect data on Airbnb properties is why they are not bookable on Airbnb's calendar. It's usually impossible to tell if a guest is booked and "blocked" or if the host is deliberately "blocking" the guest from being able to book. However, "AirDNA" invented a proprietary advanced artificial intelligence (AI) that can accurately recognize the confirmed reservation date (book) and the date when the reservation is not accepted (block) on Airbnb.In other words, AirDNA's data do not just reference data, but accurate data such as actual occupancy rates and room prices, and analysis based on these precise data is possible.
   
   - [Kaggle](https://www.kaggle.com/dgomonov/new-york-city-airbnb-open-data), Kaggle is a community of about 400,000 people working in machine learning and data science around the world. It is a platform that connects companies, governments, and other organizations with data analytics professionals - data scientists/machine learning engineers. This project specialized in analyzing the vacation rental data at New York City
@@ -34,7 +35,7 @@ Based on these numerical facts, it is interesting to explore the future of trave
   - [Towards Data Science, Exploring & Machine Learning for Airbnb Listings in Toronto](https://towardsdatascience.com/exploring-machine-learning-for-airbnb-listings-in-toronto-efdbdeba2644), The project explores Airbnb data by using machine learning listing in Toronto, Canada. It analyzes tendency of price range dependes on the neighborhoods and busiest month. 
 
 
-- What data-driven questions do you hope to answer about this domain (share at least 3)?
+* **What data-driven questions do you hope to answer about this domain (share at least 3)?**
   
     - What are the characteristics of the changes in the number of Airbnb bookings in North America before and after the pandemic?
   
@@ -48,10 +49,10 @@ Based on these numerical facts, it is interesting to explore the future of trave
 I have colleced data from Inside Airbnb, which provides publicly Airbnb platform datasets such as occupancy rate, listing geolocation, reviews, booking calender, and etc.
 The data is updated monthly by country, allowing users to understand the current state of Airbnb based on the latest information. Inside Airbnb is not officially owned and operated; it is a project started by analyst Murray Cox and designer John Morris. The site's data collection methods use the following technologies：D3, Crossfilter, dc.js, Leaflet, Bootstrap, jQuery, Select2, Python, PostgreSQL。
 
-- How many observations (rows) are in your data?
+* **How many observations (rows) are in your data?**
 There is slightly difference between each country dataset but around 12000 rows.
 
-- How many features (columns) are in the data?
+* **How many features (columns) are in the data?**
 There is slightly difference between each country dataset but the largest file is <lisgints> and it has 16 columns as follows.
 
 1. id
