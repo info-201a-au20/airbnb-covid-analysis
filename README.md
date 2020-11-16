@@ -45,9 +45,15 @@ Based on these numerical facts, it is interesting to explore the future of trave
     
     - When Airbnb started to show recover in terms of booking rate and what trigged that?
 
+* **How the question can be answered?**
+    - We begin with a step of sorting through the bookings, one by one, along the timeline and by country. We then identify properties whose bookings have been on the rise since the pandemic and consider whether each property has a geographic feature. I will also examine various aspects of the background to the surge in bookings, such as property amenities and price range.
+
+
 ## Data Source
-I have colleced data from Inside Airbnb, which provides publicly available Airbnb platform datasets such as occupancy rate, listing geolocation, reviews, booking calender, and etc.
-The data is updated monthly by country, allowing users to understand the current state of Airbnb based on the latest information. Inside Airbnb is not officially owned and operated; it is a project started by analyst Murray Cox and designer John Morris. The site's data collection methods use the following technologies：D3, Crossfilter, dc.js, Leaflet, Bootstrap, jQuery, Select2, Python, PostgreSQL。
+We have colleced data from Inside Airbnb, which provides publicly available Airbnb platform datasets such as occupancy rate, listing geolocation, reviews, booking calender, and etc.
+The data is updated monthly by country, allowing users to understand the current state of Airbnb based on the latest information. Inside Airbnb is not officially owned and operated; it is a project started by analyst Murray Cox and designer John Morris. The site's data collection methods use the following technologies：D3, Crossfilter, dc.js, Leaflet, Bootstrap, jQuery, Select2, Python, PostgreSQL.
+
+We might use data from Booking.com and Kaggle so we can compare case by case situation. Full description is below.
 
 * **How many observations (rows) are in your data?**
 There is slightly difference between each country dataset but around 12000 rows.
@@ -87,9 +93,24 @@ There is slightly difference between each country dataset but the largest file i
   - Basic information we can find out from the calendar which month's or week's price is high. It is possible to know the details of the registered properties and the correlation of features.
     
 ### Dataset 1: [Inside Airbnb, Seattle Washington, United States](http://insideairbnb.com/seattle/)
+- Airbnb dataset for Seattle which contains above 4 files.
 ### Dataset 2: [Inside Airbnb, Tokyo, Japan](http://insideairbnb.com/tokyo/)
+- Airbnb dataset for Tokyo which contains above 4 files.
+
 ### Dataset 3: [Inside Airbnb, Melbourne, Australia](http://insideairbnb.com/)
+- Airbnb dataset for Melbourne which contains above 4 files.
+
 ### Dataset 4: [Inside Airbnb, London, United Kingdom](http://insideairbnb.com/london/)
+- Airbnb dataset for London which contains above 4 files.
+
 ### Dataset 5: [Inside Airbnb, Cape Town, South Africa](http://insideairbnb.com/cape-town/)
+- Airbnb dataset for Cape Town which contains above 4 files.
+
 ### Dataset 6: [Inside Airbnb, Mexico City, Mexico](http://insideairbnb.com/mexico-city/)
+- Airbnb dataset for Mexico City which contains above 4 files.
+
 ### Dataset 7: [Booking.com](https://developers.booking.com/api/commercial/index.html?version=2.3&page_url=possible-values)
+- We might use Booking.com API which provides their platform reservation data so we can compare between Airbnb and typical OTA platform situation. We hope to find some coorelation trend in terms of the vacation rental property.This is official dataset.
+
+### Dataset 8: [Kaggle, New York City Airbnb Open Data](https://www.kaggle.com/dgomonov/new-york-city-airbnb-open-data)
+- We might use Kaggle's API Airbnb dataset so we can analyze single country (USA) Airbnb trend, then compare with Seattle's dataset from Inside Airbnb. This data set is actually also from Inside Airbnb.
