@@ -88,26 +88,26 @@ There is slightly difference between each country dataset but the largest file i
 * **calender.csv**, Information on whether or not the listing is available for booking and how much it is priced.
 * **listings.csv**, Contains information about the property and the host who owns the property.　
 * **neighbourhoods.csv**, Contains property information based on its geolocation
-* **reviews**, numerical data how many reviews each property received and the rate.
+* **reviews.csv**, numerical data how many reviews each property received and the rate.
 
   - Basic information we can find out from the calendar which month's or week's price is high. It is possible to know the details of the registered properties and the correlation of features.
     
 ### Dataset 1: [Inside Airbnb, Seattle Washington, United States](http://insideairbnb.com/seattle/)
-- Airbnb dataset for Seattle which contains above 4 files.
+- Airbnb dataset for Seattle which contains above 4 files. In this analysis, we will use this as an example to capture trends in North America.
 ### Dataset 2: [Inside Airbnb, Tokyo, Japan](http://insideairbnb.com/tokyo/)
-- Airbnb dataset for Tokyo which contains above 4 files.
+- Airbnb dataset for Tokyo which contains above 4 files. In this analysis, we will use this as an example to capture trends in Asian Pacific.
 
 ### Dataset 3: [Inside Airbnb, Melbourne, Australia](http://insideairbnb.com/)
-- Airbnb dataset for Melbourne which contains above 4 files.
+- Airbnb dataset for Melbourne which contains above 4 files. In this analysis, we will use this as an example to capture trends in Oceania.
 
 ### Dataset 4: [Inside Airbnb, London, United Kingdom](http://insideairbnb.com/london/)
-- Airbnb dataset for London which contains above 4 files.
+- Airbnb dataset for London which contains above 4 files. In this analysis, we will use this as an example to capture trends in Europe.
 
 ### Dataset 5: [Inside Airbnb, Cape Town, South Africa](http://insideairbnb.com/cape-town/)
-- Airbnb dataset for Cape Town which contains above 4 files.
+- Airbnb dataset for Cape Town which contains above 4 files. In this analysis, we will use this as an example to capture trends in Africa.
 
 ### Dataset 6: [Inside Airbnb, Mexico City, Mexico](http://insideairbnb.com/mexico-city/)
-- Airbnb dataset for Mexico City which contains above 4 files.
+- Airbnb dataset for Mexico City which contains above 4 files. In this analysis, we will use this as an example to capture trends in South America.
 
 ### Dataset 7: [Booking.com](https://developers.booking.com/api/commercial/index.html?version=2.3&page_url=possible-values)
 - We might use Booking.com API which provides their platform reservation data so we can compare between Airbnb and typical OTA platform situation. We hope to find some coorelation trend in terms of the vacation rental property.This is official dataset.
