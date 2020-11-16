@@ -18,7 +18,8 @@ Brian Chesky, Managing Director of the firm, sums up the travel market's reality
 1. We don’t know exactly when travel will return.
 2. When travel does return, it will look different. 
 
-As stated by the CEO, the company has been searching for a new business model for the travel market's new era since the pandemic happens. One of their efforts has been to change their platform concept from a short-term to a mid- long term accommodation model. Prior to the pandemic, our company focused on the business traveler and general traveler as the primary users of private accommodation facilities. However, they hypothesized that in the post-pandemic era, demand for vacation rental would be focused on workspaces for remote workers and facilities for spending time with small groups of friends, such as family members. Therefore, they changed their central business concept based on medium to long-term use cases. As a result, between May 17 and June 3, Airbnb's room bookings outperformed the YoY comparison. Besides, in mid-July, the company recorded more than 1 million overnight bookings for the first time in four months, and such bookings were characterized by a high number of "non-urban" bookings. A new form of Airbnb is beginning to emerge with social distance in mind. In other words, up until now, Airbnb has typically been a user behavior of "I'm going to use Airbnb because I'm going to visit a city called ~." But at this moment, it seems to be more of a reverse flow of "I want to stay in this Airbnb house or environment, so I'm going to visit a city called ~." Our question is whether we should continue with the concept of medium- to long-term stay concept in 2021 and beyond, should the pandemic show a recovery trend. At this stage, as mentioned above, retention rates are higher than in the immediate aftermath of the pandemic. This is because people's lifestyles are changing from urban dwellings and office work to a work-from-home (work-from-anywhere) lifestyle. 
+As stated by the CEO, the company has been searching for a new business model for the travel market's new era since the pandemic happens. One of their efforts has been to change their platform concept from a short-term to a mid- long term accommodation model. Prior to the pandemic, our company focused on the business traveler and general traveler as the primary users of private accommodation facilities. However, they hypothesized that in the post-pandemic era, demand for vacation rental would be focused on workspaces for remote workers and facilities for spending time with small groups of friends, such as family members. Therefore, they changed their central business concept based on medium to long-term use cases. As a result, between May 17 and June 3, Airbnb's room bookings outperformed the YoY comparison. Besides, in mid-July, the company recorded more than 1 million overnight bookings for the first time in four months, and such bookings were characterized by a high number of "non-urban" bookings. A new form of Airbnb is beginning to emerge with social distance in mind. In other words, up until now, Airbnb has typically been a user behavior of "I'm going to use Airbnb because I'm going to visit a city called ~." But at this moment, it seems to be more of a reverse flow of "I want to stay in this Airbnb house or environment, so I'm going to visit a city called ~." 
+My question is whether they should continue with the concept of medium- to long-term stay concept in 2021 and beyond, should the pandemic show a recovery trend. At this stage, as mentioned above, retention rates are higher than in the immediate aftermath of the pandemic. This is because people's lifestyles are changing from urban dwellings and office work to a work-from-home (work-from-anywhere) lifestyle. 
 
 After identifying the data on Airbnb's availability and bookings at this stage, we examine the geographic and physical characteristics of properties that are growing in bookings despite the pandemic.
 
@@ -26,11 +27,11 @@ Based on these numerical facts, it is interesting to explore the future of trave
 
 
 - What other examples of data driven project have you found related to this domain (share at least 3)?
-  - [Airdna](https://www.airdna.co/) 
+  - [Airdna](https://www.airdna.co/), Airdna has a daily crawl and database of over 2 million Airbnb properties in 4,250 cities worldwide. The problem is the accuracy of the data. The problem with letting the crawler collect data on Airbnb properties is why they are not bookable on Airbnb's calendar. It's usually impossible to tell if a guest is booked and "blocked" or if the host is deliberately "blocking" the guest from being able to book. However, "AirDNA" invented a proprietary advanced artificial intelligence (AI) that can accurately recognize the confirmed reservation date (book) and the date when the reservation is not accepted (block) on Airbnb.In other words, AirDNA's data do not just reference data, but accurate data such as actual occupancy rates and room prices, and analysis based on these precise data is possible.
   
-  - [Kaggle](https://www.kaggle.com/dgomonov/new-york-city-airbnb-open-data)
+  - [Kaggle](https://www.kaggle.com/dgomonov/new-york-city-airbnb-open-data), Kaggle is a community of about 400,000 people working in machine learning and data science around the world. It is a platform that connects companies, governments, and other organizations with data analytics professionals - data scientists/machine learning engineers. This project specialized in analyzing the vacation rental data at New York City
   
-  - [Towards Data Science, Exploring & Machine Learning for Airbnb Listings in Toronto](https://towardsdatascience.com/exploring-machine-learning-for-airbnb-listings-in-toronto-efdbdeba2644)
+  - [Towards Data Science, Exploring & Machine Learning for Airbnb Listings in Toronto](https://towardsdatascience.com/exploring-machine-learning-for-airbnb-listings-in-toronto-efdbdeba2644), The project explores Airbnb data by using machine learning listing in Toronto, Canada. It analyzes tendency of price range dependes on the neighborhoods and busiest month. 
 
 
 - What data-driven questions do you hope to answer about this domain (share at least 3)?
@@ -44,11 +45,40 @@ Based on these numerical facts, it is interesting to explore the future of trave
     
 
 ## Data Source
+I have colleced data from Inside Airbnb, which provides publicly Airbnb platform datasets such as occupancy rate, listing geolocation, reviews, booking calender, and etc.
+The data is updated monthly by country, allowing users to understand the current state of Airbnb based on the latest information. Inside Airbnb is not officially owned and operated; it is a project started by analyst Murray Cox and designer John Morris. The site's data collection methods use the following technologies：D3, Crossfilter, dc.js, Leaflet, Bootstrap, jQuery, Select2, Python, PostgreSQL。
 
-### Dataset 1: [Inside Airbnb, Seattle Washington, United States](http://insideairbnb.com/)
+- How many observations (rows) are in your data?
+There is slightly difference between each country dataset but around 12000 rows.
+
+- How many features (columns) are in the data?
+There is slightly difference between each country dataset but the largest file is <lisgints> and it has 16 columns as follows.
+
+1. id
+2. name
+3. host_id
+4.host_name
+5.neighbourhood_group
+6.neighbourhood
+7.latitude
+8.longitude
+9.roomt_type
+10.price
+11.minimum
+12.number_of_reviews
+13.last_reviews
+14.reviews_per_month
+15.calculated_host_listings_count
+16.availability_365
 
 
-### Dataset 2: [Inside Airbnb](http://insideairbnb.com/)
+- What questions (from above) can be answered using the data in this dataset?
 
 
-### Dataset 3: [Inside Airbnb](http://insideairbnb.com/)
+### Dataset 1: [Inside Airbnb, Seattle Washington, United States](http://insideairbnb.com/seattle/)
+### Dataset 2: [Inside Airbnb, Tokyo, Japan](http://insideairbnb.com/tokyo/)
+### Dataset 3: [Inside Airbnb, Melbourne, Australia](http://insideairbnb.com/)
+### Dataset 4: [Inside Airbnb, London, United Kingdom](http://insideairbnb.com/london/)
+### Dataset 5: [Inside Airbnb, Cape Town, South Africa](http://insideairbnb.com/cape-town/)
+### Dataset 6: [Inside Airbnb, Mexico City, Mexico](http://insideairbnb.com/mexico-city/)
+### Dataset 7: [Booking.com](https://developers.booking.com/api/commercial/index.html?version=2.3&page_url=possible-values)
