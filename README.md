@@ -42,7 +42,7 @@ Based on these numerical facts, it is interesting to explore the future of trave
   
     - As Airbnb claims, will Airbnb be used as a remote work location in the future at an increasing rate? Even if such use is currently increasing, is it sustainable?
     
-    
+    - When Airbnb started to show recover in terms of booking rate and what trigged that?
 
 ## Data Source
 I have colleced data from Inside Airbnb, which provides publicly Airbnb platform datasets such as occupancy rate, listing geolocation, reviews, booking calender, and etc.
@@ -57,24 +57,25 @@ There is slightly difference between each country dataset but the largest file i
 1. id
 2. name
 3. host_id
-4.host_name
-5.neighbourhood_group
-6.neighbourhood
-7.latitude
-8.longitude
-9.roomt_type
-10.price
-11.minimum
-12.number_of_reviews
-13.last_reviews
-14.reviews_per_month
-15.calculated_host_listings_count
-16.availability_365
+4. host_name
+5. neighbourhood_group
+6. neighbourhood
+7. latitude
+8. longitude
+9. roomt_type
+10. price
+11. minimum
+12. number_of_reviews
+13. last_reviews
+14. reviews_per_month
+15. calculated_host_listings_count
+16. availability_365
 
 
 - What questions (from above) can be answered using the data in this dataset?
 
-
+    - We can analyze booking rate changes before and after pandemic. Then, we can take a look at house type and explore if they have any characteristics. We also compare country-by-country variation separately to infer how Airbnb was used in response to each country's response and situation during the pandemic. Additionally, we derive the average number of nights per user and analyze whether Airbnb's use for remote work is increasing.
+    
 ### Dataset 1: [Inside Airbnb, Seattle Washington, United States](http://insideairbnb.com/seattle/)
 ### Dataset 2: [Inside Airbnb, Tokyo, Japan](http://insideairbnb.com/tokyo/)
 ### Dataset 3: [Inside Airbnb, Melbourne, Australia](http://insideairbnb.com/)
