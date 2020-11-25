@@ -1,6 +1,6 @@
 
 
-capetown_listing <- read.csv("data/CapeTown_2020_October/listings.csv", stringsAsFactors = FALSE)
+capetown_listing <- read.csv("../data/CapeTown_2020_October/listings.csv", stringsAsFactors = FALSE)
 
 london_listing <- read.csv("data/London_2020_October/listings.csv", stringsAsFactors = FALSE)
 

@@ -19,12 +19,12 @@ get_summary_info <- function(dataset) {
 
 
 # use View() to check description
-tokyo_listing_overview <- get_summary_info(tokyo)
-seattle_listing_overview <- get_summary_info(seattle)
-mexico_listing_overview <- get_summary_info(mexico)
-melbourne_listing_overview <- get_summary_info(melbourne)
-london_listing_overview <- get_summary_info(london)
-capetown_listing_overview <- get_summary_info(capetown)
+tokyo_listing_overview <- get_summary_info(tokyo_listing)
+seattle_listing_overview <- get_summary_info(seattle_listing)
+mexico_listing_overview <- get_summary_info(mexico_listing)
+melbourne_listing_overview <- get_summary_info(melbourne_listing)
+london_listing_overview <- get_summary_info(london_listing)
+capetown_listing_overview <- get_summary_info(capetown_listing)
 
 
 
