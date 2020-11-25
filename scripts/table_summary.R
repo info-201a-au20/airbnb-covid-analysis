@@ -23,3 +23,6 @@ summary_table <- function(dataset) {
 
 
 summary_table(seattle_listing)
+
+
+This is the test
