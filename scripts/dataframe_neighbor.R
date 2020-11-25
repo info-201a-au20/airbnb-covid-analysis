@@ -8,6 +8,6 @@ melbourne_neighbor <- read.csv("data/Melbourne_2020_October/neighbourhoods.csv",
 
 mexico_neighbor <- read.csv("data/MexicoCity_2020_October/neighbourhoods.csv", stringsAsFactors = FALSE)
 
-seattle_neighbor <- read.csv("data/Seattle_2020_October/neighbourhoods.csv", stringsAsFactors = FALSE)
+seattle_neighbor <- read.csv("../data/Seattle_2020_October/neighbourhoods.csv", stringsAsFactors = FALSE)
 
 tokyo_neighbor <- read.csv("data/Tokyo_2020_October/neighbourhoods.csv", stringsAsFactors = FALSE)

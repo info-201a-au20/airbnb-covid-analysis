@@ -13,4 +13,13 @@ seattle_listing <- read.csv("./data/Seattle_2020_October/listings.csv", stringsA
 # - Be interntionally sorted in a meaningful way
 
 
-summary_table <- get_summary_table
+summary_table <- function(dataset) {
+  get_summary_table <- dataset %>%
+    group_by(room_type) %>%
+    filter(last_review == max(last_review))
+  
+  return(get_summary_table)
+}
+
+
+summary_table(seattle_listing)
