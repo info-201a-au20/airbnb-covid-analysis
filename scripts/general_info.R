@@ -1,18 +1,27 @@
-## function to store general information from the dataset
 library(readr)
+library(dplyr)
+source("scripts/dataframe_listing.R")
 
-
-seattle_listings <- read.csv("../data/Seattle_2020_October/listings.csv", stringsAsFactors = FALSE)
-dim(seattle_listings)
-seattle_listings$price <- as.numeric(sub("\\$","", seattle_listings$price))
-# A function that takes in a dataset and returns a list of infor about it:
-
-
+# A function that takes in a dataset and returns a list of information.
+                           
 get_summary_info <- function(dataset) {
   summary_list <- list()
   # Most Expensive
-  summary_list$most_expensive <- sum(max(dataset$price, na.rm = TRUE))
+  summary_list$most_expensive <- max(dataset$price, na.rm = TRUE)
   
+  # Most Expensive Property Name
+  summary_list$most_expensive_name <- seattle_listings[which.max(seattle_listings$price),] %>% 
+    select(name)
+  
+  # Most Expensive Property booking number
+  summary_list$most_expensive_booking <- seattle_listings[which.max(seattle_listings$price),] %>% 
+    select(availability_90)
+  
+  summary_list$most_expensive_roomtype <- seattle_listings[which.max(seattle_listings$price),] %>% 
+    select(property_type)
+  
+  summary_list$most_expensive_description <- seattle_listings[which.max(seattle_listings$price),] %>% 
+    select(description)
   # Average Price
   summary_list$avg_price <- mean(dataset$price, na.rm = TRUE)
   
@@ -36,28 +45,28 @@ get_summary_info <- function(dataset) {
   summary_list$avg_min_night <- mean(dataset$minimum_nights, na.rm = TRUE)
   
   # average number of reviews in last 30 days
-  summary_list$avg_num_reviews_30 <- mean(dataset$number_of_reviews_l30d, na.rm = TRUE)
+  summary_list$avg_reviews_30 <- mean(dataset$number_of_reviews_l30d, na.rm = TRUE)
+  
+  # median of reviews in last 30 days
+  summary_list$median_reviews_30 <- median(dataset$number_of_reviews_l30d, na.rm = TRUE)
   
   # total number of reviews in last 30 days
   summary_list$num_reviews_30 <- sum(dataset$number_of_reviews_l30d, na.rm = TRUE)
   
-  # instant bookable rate
+  # Average number of reviews in the past 12 months
+  summary_list$avg_reviews_year <- mean(dataset$number_of_reviews_ltm, na.rm = TRUE)
   
-  # number of comment with keyword "COVID", "Corona Virus" or "COVID-19"
+  # Median of reviews in the past 12 months
+  summary_list$median_reviews_year <- median(dataset$number_of_reviews_ltm, na.rm = TRUE)
+  
+  # Total number of reviews in the past 12 months
+  summary_list$num_reviews_year <- sum(dataset$number_of_reviews_ltm, na.rm = TRUE)
   
   return(summary_list)
 }
+
+
 seattle_listing_overview <- get_summary_info(seattle_listings)
-seattle_listing_overview
-
-
-
-# use View() to check description
-tokyo_listing_overview <- get_summary_info(tokyo_listing)
-mexico_listing_overview <- get_summary_info(mexico_listing)
-melbourne_listing_overview <- get_summary_info(melbourne_listing)
-london_listing_overview <- get_summary_info(london_listing)
-capetown_listing_overview <- get_summary_info(capetown_listing)
 
 
 
