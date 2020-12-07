@@ -38,3 +38,5 @@ vignettes/*.pdf
 # Shiny token, see https://shiny.rstudio.com/articles/shinyapps.html
 rsconnect/
 data/London_2020_October/reviews.csv.gz
+*.csv
+*.csv
