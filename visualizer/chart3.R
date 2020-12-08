@@ -7,13 +7,20 @@ source("scripts/dataframe_review.R")
 
 # filter property list with keyword "COVID" related terms we want to examine and
 # compare it with seattle_reviews <id> so as to merge two datasets.
-filtered_reviews <- seattle_reviews %>%
-  select(listing_id, date, comments) %>%
-  filter(str_detect(comments, "COVID|COVID-19|coronavirus|covid|virus|pandemic|remote|remote work|workation
-                    |staycation")) %>%
-  filter(date > "2020-01-01")
 
-matched_dataframe <- seattle_listings[seattle_listings$id %in% filtered_reviews$listing_id, ]
+get_filtered_reviews <- function(reviews_dataset, listings_dataset) {
+  filtered_dataset <- reviews_dataset %>%
+    select(listing_id, date, comments) %>%
+    filter(str_detect(comments, "COVID|COVID-19|coronavirus|covid|virus|pandemic|remote|remote work|workation
+                    |staycation")) %>%
+    filter(date > "2020-01-01")
+  
+  matched <- listings_dataset[listings_dataset$id %in% filtered_dataset$listing_id, ]
+  return(matched)
+}
+
+matched_dataframe <- get_filtered_reviews(seattle_reviews, seattle_listings)
+
 
 
 # color setting for the circle maker, color changes depends on minimum night stay.
