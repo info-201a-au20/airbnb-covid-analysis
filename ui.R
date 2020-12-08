@@ -10,14 +10,46 @@ library(dplyr)
 country_picker <- selectInput(
   inputId = "current_country",
   label = "Choose Country/City",
-  choices = c("Seattle", "San Francisco", "New York", "Tokyo",
-              "Mexico City", "Melbourne", "London", "Cape Town"),
+  choices = c(
+    "Seattle",
+    "San Francisco",
+    "New York",
+    "Tokyo",
+    "Mexico City",
+    "Melbourne",
+    "London",
+    "Cape Town"
+  ),
   selected = "Seattle"
+)
+
+country_picker_chart <- selectInput(
+  inputId = "current_chart_country",
+  label = "Choose Country/City",
+  choices = c(
+    "Seattle",
+    "San Francisco",
+    "New York",
+    "Tokyo",
+    "Mexico City",
+    "Melbourne",
+    "London",
+    "Cape Town"
+  ),
+  selected = "Tokyo"
 )
 
 filter_map_judge <- selectInput(
   inputId = "filter_yes_or_no",
   label = "Filter Map?",
+  choices = c("Yes", "No"),
+  selected = "No"
+  
+)
+
+filter_chart_judge <- selectInput(
+  inputId = "filter_chart_yes_or_no",
+  label = "Filter Chart?",
   choices = c("Yes", "No"),
   selected = "No"
   
@@ -57,9 +89,9 @@ ui <- shinyUI(fluidPage(
                               according to the Airbnb offiial fiscal year report.
                               A new form of Airbnb is beginning to emerge with social distance in mind.
                               In other words, up until now, Airbnb has typically been a user behavior of *I'm going to use Airbnb because I'm going to visit a city called ~.
-                              * But at this moment, it seems to be more of a reverse flow of
-                              *I want to stay in this Airbnb house or environment,
-                              so I'm going to visit a city called ~.*"
+                              But at this moment, it seems to be more of a reverse flow of
+                              'I want to stay in this Airbnb house or environment,
+                              so I'm going to visit a city called ~.'"
       ),
       p(
         "My question is whether they should continue with the concept of medium- to long-term stay
@@ -132,14 +164,39 @@ ui <- shinyUI(fluidPage(
                    width = "auto",
                    height = "auto",
                    
-                   h4("Airbnb Listings"),
-                   p("Filter map as you with. Select 'yes' if you would like to see filtered Airbnb listings map,
-                     otherwise select 'no'. "),
+                   tags$h4("Airbnb Listings"),
+                   p(
+                     "Filter map as you with. Select 'yes' if you would like to see filtered Airbnb listings map,
+                     otherwise select 'no'. "
+                   ),
                    filter_map_judge,
                    country_picker
                    
                  )
                )
+             )),
+    
+    tabPanel(title = "Price",
+             sidebarLayout(
+               sidebarPanel(
+                 tags$h3("Price Comparison"),
+                 p("This is price comparison"),
+                 filter_chart_judge,
+                 country_picker_chart
+               ),
+               mainPanel(plotOutput("priceChart"))
+             )),
+    
+    tabPanel(title = "Price/Room",
+             sidebarLayout(
+               sidebarPanel(
+                 tags$h3("Price and Room"),
+                 p("This is price and room"),
+                 filter_chart_judge,
+                 country_picker_chart
+               ),
+               mainPanel(plotOutput("priceRoom"))
+               
              ))
   )
 ))
