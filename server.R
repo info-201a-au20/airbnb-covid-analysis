@@ -7,7 +7,8 @@ library(stringr)
 library(leaflet)
 library(tidytext)
 library(dplyr)
-
+library(plotly)
+library(ggplot2)
 
 
 source("scripts/dataframe_review.R")
@@ -38,7 +39,7 @@ server <- shinyServer(function(input, output) {
             filter(date > "2020-01-01")
           
           matched <-
-            listings_dataset[listings_dataset$id %in% filtered_dataset$listing_id,]
+            listings_dataset[listings_dataset$id %in% filtered_dataset$listing_id, ]
           return(matched)
         }
     }
@@ -123,12 +124,12 @@ server <- shinyServer(function(input, output) {
         color = ~ color_setting(minimum_nights),
         stroke = FALSE,
         # SF has too huge minimum stay integer so adjust it
-        radius = if(input$current_country == "San Francisco" && input$filter_yes_or_no == "No") {
-          
+        radius = if (input$current_country == "San Francisco" &&
+                     input$filter_yes_or_no == "No") {
           ~ minimum_nights / 1000000
         } else {
           ~ minimum_nights / 5
-        }, 
+        },
         fillOpacity = ~ minimum_nights / 10,
         popup = paste0(
           "<b> You have to stay here at least: </b>",
@@ -154,6 +155,127 @@ server <- shinyServer(function(input, output) {
     return(chart3)
     
   })
+  
+  output$priceChart <- renderPlot({
+    
+    if (input$filter_chart_yes_or_no == "Yes") {
+      get_filtered_reviews <-
+        function(reviews_dataset, listings_dataset) {
+          filtered_dataset <- reviews_dataset %>%
+            select(listing_id, date, comments) %>%
+            filter(
+              str_detect(
+                comments,
+                "COVID|COVID-19|coronavirus|covid|virus|pandemic|remote|remote work|workation
+                    |staycation|コロナ|コロナウイルス|リモートワーク|ワーケーション|テレワーク"
+              )
+            ) %>%
+            filter(date > "2020-01-01")
+          
+          matched <-
+            listings_dataset[listings_dataset$id %in% filtered_dataset$listing_id, ]
+          return(matched)
+        }
+    }
+    
+    # change to input depends on country
+    if (input$current_chart_country == "Seattle") {
+      if (input$filter_chart_yes_or_no == "Yes") {
+        matched_dataframe <-
+          get_filtered_reviews(seattle_reviews, seattle_listings)
+      } else {
+        matched_dataframe = seattle_listings
+      }
+    }
+    else if (input$current_chart_country == "San Francisco") {
+      if (input$filter_chart_yes_or_no == "Yes") {
+        matched_dataframe <-
+          get_filtered_reviews(sanfrancisco_reviews, sanfrancisco_listings)
+      } else {
+        matched_dataframe = sanfrancisco_listings
+      }
+    }
+    else if (input$current_chart_country == "New York") {
+      if (input$filter_chart_yes_or_no == "Yes") {
+        matched_dataframe <-
+          get_filtered_reviews(newyork_reviews, newyork_listings)
+      } else {
+        matched_dataframe = newyork_listings
+      }
+    }
+    else if (input$current_chart_country == "Tokyo") {
+      if (input$filter_chart_yes_or_no == "Yes") {
+        matched_dataframe <-
+          get_filtered_reviews(tokyo_reviews, tokyo_listings)
+      } else {
+        matched_dataframe = tokyo_listings
+      }
+    }
+    else if (input$current_chart_country == "Mexico City") {
+      if (input$filter_chart_yes_or_no == "Yes") {
+        matched_dataframe <-
+          get_filtered_reviews(mexico_reviews, mexico_listings)
+      } else {
+        matched_dataframe = mexico_listings
+      }
+    }
+    else if (input$current_chart_country == "Melbourne") {
+      if (input$filter_chart_yes_or_no == "Yes") {
+        matched_dataframe <-
+          get_filtered_reviews(melbourne_reviews, melbourne_listings)
+      } else {
+        matched_dataframe = melbourne_listings
+      }
+    }
+    else if (input$current_chart_country == "London") {
+      if (input$filter_chart_yes_or_no == "Yes") {
+        matched_dataframe <-
+          get_filtered_reviews(london_reviews, london_listings)
+      } else {
+        matched_dataframe = london_listings
+      }
+    }
+    else if (input$current_chart_country == "Cape Town") {
+      if (input$filter_chart_yes_or_no == "Yes") {
+        matched_dataframe <-
+          get_filtered_reviews(capetown_reviews, capetown_listings)
+      } else {
+        matched_dataframe = capetown_listings
+      }
+    }
+    
+    first_chart <- function(dataset) {
+      chart <- dataset %>%
+        ggplot(aes(x = price, y = accommodates, fill = room_type)) +
+        geom_point(
+          size = 4,
+          shape = 21,
+          color = "white",
+          stroke = 1.5,
+          na.rm = TRUE
+        ) +
+        scale_fill_brewer(palette = "Paired") +
+        theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
+        labs(title = "Relationships between Property Capacity and Price", x =
+               "Price", y = "Accommodates") +
+        theme_bw() +
+        theme(
+          panel.border = element_blank(),
+          panel.grid.major = element_blank(),
+          panel.grid.minor = element_blank(),
+          axis.line = element_line(color = "black")
+        )
+      
+      return(chart)
+    }
+    
+    chart_plot <- first_chart(matched_dataframe)
+    
+    return(chart_plot)
+    
+  })
+  
+  
   
   
   
