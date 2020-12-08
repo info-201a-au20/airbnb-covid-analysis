@@ -3,24 +3,24 @@ library(dplyr)
 source("scripts/dataframe_listing.R")
 
 # A function that takes in a dataset and returns a list of information.
-                           
+         
 get_summary_info <- function(dataset) {
   summary_list <- list()
   # Most Expensive
   summary_list$most_expensive <- max(dataset$price, na.rm = TRUE)
   
   # Most Expensive Property Name
-  summary_list$most_expensive_name <- seattle_listings[which.max(seattle_listings$price),] %>% 
+  summary_list$most_expensive_name <- dataset[which.max(dataset$price),] %>% 
     select(name)
   
   # Most Expensive Property booking number
-  summary_list$most_expensive_booking <- seattle_listings[which.max(seattle_listings$price),] %>% 
+  summary_list$most_expensive_booking <- dataset[which.max(dataset$price),] %>% 
     select(availability_90)
   
-  summary_list$most_expensive_roomtype <- seattle_listings[which.max(seattle_listings$price),] %>% 
+  summary_list$most_expensive_roomtype <- dataset[which.max(dataset$price),] %>% 
     select(property_type)
   
-  summary_list$most_expensive_description <- seattle_listings[which.max(seattle_listings$price),] %>% 
+  summary_list$most_expensive_description <- dataset[which.max(dataset$price),] %>% 
     select(description)
   # Average Price
   summary_list$avg_price <- mean(dataset$price, na.rm = TRUE)
@@ -66,7 +66,15 @@ get_summary_info <- function(dataset) {
 }
 
 
-seattle_listing_overview <- get_summary_info(seattle_listings)
+seattle_listings_overview <- get_summary_info(seattle_listings)
+tokyo_listings_overview <- get_summary_info(tokyo_listings)
+mexico_listings_overview <- get_summary_info(mexico_listings)
+melbourne_listings_overview <- get_summary_info(melbourne_listings)
+london_listings_overview <- get_summary_info(london_listings)
+capetown_listings_overview <- get_summary_info(capetown_listings)
+sanfrancisco_listings_overview <- get_summary_info(sanfrancisco_listings)
+newyork_listings_overview <- get_summary_info(newyork_listings)
+
 
 
 
