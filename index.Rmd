@@ -37,7 +37,7 @@ This analysis will examine the dataset from the Inside Airbnb, which is an indep
 
 ```{r summary info, include=FALSE}
 
-this_summary_info <- seattle_listing_overview
+this_summary_info <- seattle_listings_overview
 this_summary_info
 
 ```
