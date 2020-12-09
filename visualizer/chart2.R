@@ -14,5 +14,7 @@ second_chart <- function(dataset) {
     theme(plot.title = element_text(hjust = 0.5)) +
     geom_hline(yintercept = mean(dataset$price, na.rm = TRUE), color = "yellow", linetype = 5)
   
+  return(chart)
+  
 }
 
