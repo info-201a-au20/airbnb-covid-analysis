@@ -4,7 +4,6 @@ source("scripts/dataframe_listing.R")
 ### Summary Table
 
 # get dataset
-# function to get summary table for seattle listing dataset
 
 summary_table <- function(dataset) {
   get_summary_table <- list()
@@ -52,3 +51,5 @@ summary_table <- function(dataset) {
   
   return(get_summary_table)
 }
+
+summary_table(seattle_listings)
