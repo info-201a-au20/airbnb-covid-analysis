@@ -10,21 +10,53 @@ div.outer {
 
 #controls {
   /* Appearance */
-  background-color: white;
+  background-color: black;
   padding: 0 20px 20px 20px;
   cursor: move;
   /* Fade out while not hovering */
-  opacity: 0.65;
+  opacity: 0.56;
   zoom: 0.9;
   transition: opacity 500ms 1s;
-  color: black;
+  color: white;
 }
 #controls:hover {
-  /* Fade in while hovering */
-  opacity: 0.95;
-  transition-delay: 0;
+  opacity: 0.8;
+  transition-delay: 0.5;
+}
+
+h2 {
+  color: white;
+  display: inline;
+}
+
+h3 {
+  color: white;
 }
 
 h4 {
   color: black;
+}
+p{
+  color: white;
+
+}
+  
+
+blockquote {
+  background: #506585;
+  border-left: 10px solid #ccc;
+  margin: 1.5em 10px;
+  padding: 0.5em 10px;
+  quotes: "\201C""\201D""\2018""\2019";
+}
+blockquote:before {
+  color: white;
+  content: open-quote;
+  font-size: 4em;
+  line-height: 0.1em;
+  margin-right: 0.25em;
+  vertical-align: -0.4em;
+}
+blockquote p {
+  display: block;
 }
