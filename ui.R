@@ -3,6 +3,7 @@ library(shinythemes)
 library(shinyWidgets)
 library(leaflet)
 library(dplyr)
+library(wordcloud2)
 source("scripts/table_summary.R")
 source("scripts/general_info.R")
 source("scripts/table_summary.R")
@@ -183,10 +184,18 @@ ui <- shinyUI(fluidPage(
                               and such bookings were characterized by a high number of non-urban bookings,
                               according to the Airbnb offiial fiscal year report.
                               A new form of Airbnb is beginning to emerge with social distance in mind.
-                              In other words, up until now, Airbnb has typically been a user behavior of *I'm going to use Airbnb because I'm going to visit a city called ~.
+                              In other words, up until now, Airbnb has typically been a user behavior of 'I'm going to use Airbnb because I'm going to visit a city called ~.'
                               But at this moment, it seems to be more of a reverse flow of
                               'I want to stay in this Airbnb house or environment,
-                              so I'm going to visit a city called ~.'"
+                              so I'm going to visit a city called ~.' This is understandable and this could be a next strategy for Airbnb as they use term 'GO NEAR' on their platform
+            Especially, it is interesting to explore their current user data since they are about to go public! (Congrats!) ."
+          ),
+          p(
+            "Use filter as you with. Select 'Yes' if you would like to see filtered Airbnb listings/reviews dataset, frequent used words for
+            listing/review page.
+            The filter dataset only shows the properties that user commented in the review with words such as 'COVID',
+                    which we can asuume the place was used during the pandemic for specific reason.
+            The data is between January 1, 2020 to October 10."
           ),
           
           tags$h3("Word Cloud <Listings>"),
@@ -195,7 +204,10 @@ ui <- shinyUI(fluidPage(
           tags$h3("Word Cloud <Reviews>"),
           country_picker_wordcloud_reviews
         ),
+        
+        
         mainPanel(
+        
           wordcloud2Output(outputId = "showCloud"),
           p(""),
           wordcloud2Output(outputId = "showCloudReviews"),
@@ -268,10 +280,10 @@ ui <- shinyUI(fluidPage(
                sidebarPanel(
                  tags$h3("Cap vs Price vs Room"),
                  p(
-                   "Filter map as you with. Select 'Yes' if you would like to use filtered Airbnb listings dataset,
+                   "Filter chart as you with. Select 'Yes' if you would like to use filtered Airbnb listings dataset,
                      otherwise select 'No'. These charts show the price per night on the x-axis and the maximum number of people that can stay at the facility on the y-axis.
-                     One chart is sourced from a data frame for the past 12 months but utilizes a dataset of post-occupancy reviews filtered by relevant terms such as 'COVID, COVID-19, and Remote Work'.
-                   This helps to find Airbnb properties that have been used for specific purposes during the pandemic. "
+                     One chart is sourced from a data frame for the past 12 months but utilizes a dataset of guest reviews filtered by relevant terms such as 'COVID, COVID-19, and Remote Work'.
+                   This helps to find Airbnb properties that have been used for specific purposes during the pandemic."
                  ),
                  filter_chart_judge,
                  country_picker_chart
@@ -299,19 +311,21 @@ ui <- shinyUI(fluidPage(
              sidebarLayout(
                sidebarPanel(
                  tags$h3("Quick Takeaways"),
-                 p("- Map insight"),
+                 p("When you look at the map with filtered data, it is clear that most of property requires guest to stay at least 20-30 days. It is understandable since Airbnb
+                   currently encourages host to open their house as long term use, monthly useage."),
                  p(
-                   "- There has been a shift in demand for Airbnb, in the wake of the pandemic, especially for family vacation use and as a remote working place. In that sense, facilities for 12 or more people are only used three times,
-                 and Airbnb owners are likely to suffer from a demand that is unlikely to return."
+                   "Surprisingly, we don't see major shift in average price for entire country/list between filter data and raw data.
+                   However, most of the filtered data shows only Entire Home and hotels and shared houses are not even appeard as box plot, i.e, no data.
+                   For example in Cape Town, hotel room, private room, shared room were used a lot, but only entire home and private room are used in filtered data."
                  ),
                  p(
                    "- We can see that the demand is mainly concentrated in facilities that can accommodate up to four people, up to a maximum of $200 per night.
-            Conversely, in the overview (seattle_listings) figure, we can see that facilities ranging from $400 to $500 per night are quite common,
+            Conversely, withouf filter, we can see that facilities ranging from $400 to $500 per night are quite common,
             and demand is concentrated in facilities that accommodate between 4 and 8 people at most. It should be at least transparent that
             there has been a shift in demand for Airbnb, in the wake of the pandemic,
             especially for family vacation use and as a remote working place.
-            In that sense, facilities for 12 or more people are only used three times, and
-            Airbnb owners are likely to suffer from a demand that is unlikely to return."
+            In that sense, facilities for 12 or more people are only used few times, and
+            Airbnb owners are likely to suffer from a demand that is unlikely to return. (Check <Cap vs Price vs Room> section)"
                  ),
                  tags$h3("Company Overview"),
                  p(
@@ -329,13 +343,13 @@ ui <- shinyUI(fluidPage(
                ),
                
                mainPanel(
-                 tags$h2("<center>Original Airbnb Concept - AirBed & Breakfast</center>"),
-                 p(""),
                  HTML(
-                   '<center><img src = "https://blog.adioma.com/wp-content/uploads/2016/07/how-airbnb-started-infographic.png"></center>'
+                   '<img src = "https://blog.adioma.com/wp-content/uploads/2016/07/how-airbnb-started-infographic.png">'
                  ),
+                 tags$h2("Original Airbnb Concept - AirBed & Breakfast"),
+                 
                  p(
-                   a("<center>Image Source: How Airbnb Stared - Infographic</center>", href = "https://blog.adioma.com/how-airbnb-started-infographic/")
+                   a("Image Source: How Airbnb Stared - Infographic", href = "https://blog.adioma.com/how-airbnb-started-infographic/")
                  )
                )
              ))
