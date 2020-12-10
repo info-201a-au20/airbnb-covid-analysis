@@ -1,6 +1,6 @@
 
 library(wordcloud2)
-# get 
+
 get_cloud_visual_listings <- function(dataset) {
   
   finalWords <- dataset %>%
@@ -16,7 +16,7 @@ get_cloud_visual_listings <- function(dataset) {
   finalCloud2 <- finalCloud[1: 200, ]
   
   wordcloud2(data = finalCloud,
-              color = 'random-dark', backgroundColor = "black")
+              color = 'random-dark', backgroundColor = "black", widgetsize = 1.5)
   
 
 }
@@ -39,7 +39,7 @@ get_cloud_visual_reviews <- function(dataset) {
   finalCloud2 <- finalCloud[1: 200, ]
   
   wordcloud2(data = finalCloud,
-             color = 'random-dark', backgroundColor = "black")
+             color = 'random-dark', backgroundColor = "black", widgetsize = 1.5)
   
   
 }
