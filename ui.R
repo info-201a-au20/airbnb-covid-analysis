@@ -9,8 +9,6 @@ source("scripts/general_info.R")
 source("scripts/table_summary.R")
 
 
-# Top page for project intro
-
 country_picker <- selectInput(
   inputId = "current_country",
   label = "Choose Country/City",
@@ -207,7 +205,6 @@ ui <- shinyUI(fluidPage(
         
         
         mainPanel(
-        
           wordcloud2Output(outputId = "showCloud"),
           p(""),
           wordcloud2Output(outputId = "showCloudReviews"),
@@ -311,8 +308,10 @@ ui <- shinyUI(fluidPage(
              sidebarLayout(
                sidebarPanel(
                  tags$h3("Quick Takeaways"),
-                 p("When you look at the map with filtered data, it is clear that most of property requires guest to stay at least 20-30 days. It is understandable since Airbnb
-                   currently encourages host to open their house as long term use, monthly useage."),
+                 p(
+                   "When you look at the map with filtered data, it is clear that most of property requires guest to stay at least 20-30 days. It is understandable since Airbnb
+                   currently encourages host to open their house as long term use, monthly useage."
+                 ),
                  p(
                    "Surprisingly, we don't see major shift in average price for entire country/list between filter data and raw data.
                    However, most of the filtered data shows only Entire Home and hotels and shared houses are not even appeard as box plot, i.e, no data.
