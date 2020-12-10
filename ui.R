@@ -182,7 +182,7 @@ ui <- shinyUI(fluidPage(
                               and such bookings were characterized by a high number of non-urban bookings,
                               according to the Airbnb offiial fiscal year report.
                               A new form of Airbnb is beginning to emerge with social distance in mind.
-                              In other words, up until now, Airbnb has typically been a user behavior of 'I'm going to use Airbnb because I'm going to visit a city called ~.'
+                              Up until now, Airbnb has typically been a user behavior of 'I'm going to use Airbnb because I'm going to visit a city called ~.'
                               But at this moment, it seems to be more of a reverse flow of
                               'I want to stay in this Airbnb house or environment,
                               so I'm going to visit a city called ~.' This is understandable and this could be a next strategy for Airbnb as they use term 'GO NEAR' on their platform
