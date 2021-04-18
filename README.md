@@ -16,7 +16,7 @@ The COVID-19 pandemic has hit our company, Airbnb, a private accommodation busin
 
 Brian Chesky, Managing Director of the firm, sums up the travel market's reality at this stage in two ways.
 
-1. We don’t know exactly when travel will return.
+1. We don't know exactly when travel will return.
 2. When travel does return, it will look different. 
 
 As stated by the CEO, the company has been searching for a new business model for the travel market's new era since the pandemic happens. One of their efforts has been to change their platform concept from a short-term to a mid- long term accommodation model. Prior to the pandemic, our company focused on the business traveler and general traveler as the primary users of private accommodation facilities. However, they hypothesized that in the post-pandemic era, demand for vacation rental would be focused on workspaces for remote workers and facilities for spending time with small groups of friends, such as family members. Therefore, they changed their central business concept based on medium to long-term use cases. As a result, between May 17 and June 3, Airbnb's room bookings outperformed the YoY comparison. Besides, in mid-July, the company recorded more than 1 million overnight bookings for the first time in four months, and such bookings were characterized by a high number of "non-urban" bookings. A new form of Airbnb is beginning to emerge with social distance in mind. In other words, up until now, Airbnb has typically been a user behavior of "I'm going to use Airbnb because I'm going to visit a city called ~." But at this moment, it seems to be more of a reverse flow of "I want to stay in this Airbnb house or environment, so I'm going to visit a city called ~." 

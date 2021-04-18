@@ -1,0 +1,110 @@
+---
+title: "Airbnb Analysis"
+author: "Taishi Masubuchi"
+date: "11/24/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+library("knitr")
+library("dplyr")
+source("scripts/dataframe_listing.R")
+source("scripts/general_info.R")
+source("scripts/table_summary.R")
+source("visualizer/chart1.R")
+source("visualizer/chart2.R")
+source("visualizer/chart3.R")
+```
+
+
+## Introduction
+### TL;DL
+- The COVID-19 pandemic led to a sharp drop in Airbnb users, and the company was on the verge of a cash shortage due to the cancellation process.
+- Simultaneously with the layoffs, the company raised funds and changed its platform concept from short term rental to mid-long term rental.
+- As remote work becomes more common for keeping social distancing, Airbnb users have seen a surge in its use as a workspace, with mid-July marking the first time in four months that more than one million room bookings were made. However, it is unsure that it will last and be sustainable.
+
+In mid-July, the company recorded more than 1 million overnight bookings for the first time in four months, and such bookings were characterized by a high number of "non-urban" bookings, according to the Airbnb offiial fiscal year report.
+
+A new form of Airbnb is beginning to emerge with social distance in mind. 
+In other words, up until now, Airbnb has typically been a user behavior of *"I'm going to use Airbnb because I'm going to visit a city called ~."* But at this moment, it seems to be more of a reverse flow of *"I want to stay in this Airbnb house or environment, so I'm going to visit a city called ~."*
+
+My question is whether they should continue with the concept of medium- to long-term stay concept in 2021 and beyond, should the pandemic show a recovery trend. At this stage, as mentioned above, retention rates are higher than in the immediate aftermath of the pandemic. This is because people's lifestyles are changing from urban dwellings and office work to a work-from-home (work-from-anywhere) lifestyle.
+
+This analysis will examine the dataset from the Inside Airbnb, which is an independent, non-commercial set of tools and data that allows to explore how Airbnb is being used in cities around the world. The analysis will try to find user's behavior during the pandemic (After January 2020 to October 2020) and what their demand has been changing. For the Midpoint Deliverly, the report will focus on Seattle region so as to find key trends. 
+
+
+## Summary Information
+
+```{r summary info, include=FALSE}
+
+this_summary_info <- seattle_listings_overview
+this_summary_info
+
+```
+In this summary, it exmaines numerical data from Inside Airbnb's listings.csv dataset focusing on Seattle region. It revealed several inportant aspects of the current Airbnb status in Seattle. First, the most expensive Airbnb property in Seattle is `r this_summary_info$most_expensive` and its name is `r this_summary_info$most_expensive_name`. Interestingly, the property's avaiability in the past 90 days are `r this_summary_info$most_expensive_booking`, therfore, it was rented 3days in this pandemic season! i.e. the owner earned around 3000 USD! When we look at the Seattle's average room availability in the past 30, 60, 90days, the result is as follows: 30days: `r round(this_summary_info$avg_availability_30, 1)`, 60days: `r round(this_summary_info$avg_availability_60, 1)`, 90days: `r round(this_summary_info$avg_availability_90, 1)`. It is not obvious trend but it is clear that the ratio of property avaiability is getting slightly smaller (recovered) as time goes by. However, even Seattle has an Airbnb property total of `r nrow(seattle_listings)`, the total number of reviews in the past 30 days are `r this_summary_info$num_reviews_30` and even worse, the average number of reviews in the past 30 days are `r this_summary_info$avg_num_reviews_30`. On the contrary, however, it is revealed that average number of reviews in the past 12 months are `r this_summary_info$avg_reviews_year` which is ten times larger than the current mean. But, it is much better to look at *median* value rather than *mean* since the population for both cases are different - so the result is like this: 30days: `r this_summary_info$median_reviews_30`, 12months: `r this_summary_info$median_reviews_year`. Surprisingly (or maybe I should say it  was obvious), the median for the past 30 days recorded *zero* whereas past 12months recorded *4*. Based on these facts, we can say that The number of Airbnb users continues to record almost zero bookings at most properties in Seattle, although the number of Airbnb users is slightly recovering with each passing day.
+
+
+## Summary Table
+
+```{r summary table, include=TRUE}
+
+
+this_summary_table <- summary_table(seattle_listings)
+this_summary_table
+
+```
+
+These summary tables are meant to be used as comparison between Airbnb property useage (number of reviews user commented after they used the property) in the past 30days/12months.However, this information alone can only compare the declining numbers of users based on superficial numerical details. Therefore, it is much more meaningful to examine the purpose of Airbnb's use by unraveling the areas that continue to be used, even during the past 30 days when the number of users is declining significantly. 
+
+First of all, it is clear that the entire home/apartment is preffered for both past 30days/12months users, with an average of 11 and a median of 4 over the past 12 months. In the past 30 days, even the Entire home/apt had a mean of less than one and a median of zero, so even thought there is a total of 3309 usage recorded for the house type, most of them had zero or at most 1.
+
+Next, which areas are most likely to be used? The table focuses on the median of both to get an accurate picture of the trend. First, we see that the most frequented areas in Seattle over the past year have been urban areas such as Marina, Yesler Terrace, and Victory Heights, which are the most frequented by tourists and business travelers. This may be mainly since tourists, and business travelers were still heavily counted. On the contrary, the median over the past 30 days shows that the locations used have changed significantly. For example, among the top 10 places, we can see that Venice, Downtown Austin, and others are relatively used rather than urban area that is located around Bainbridge Island and Whidbey Island.This can be read as one change that indicates that the purpose of Airbnb use is shifting from tourism to workspaces, and the more rural the location, the greater the demand. One thing I want to note is that there was a large number of usuage in Yesler Terrace, total of 53 times within the past 30days. I believe the area is located around Harborview Meidcal Center thus possibly most of them are those who are engaged in Health Care professionals.
+
+
+## Visual Overview
+
+## Chart 1: 
+
+```{r char 1, echo=FALSE} 
+
+chart1_list <- list()
+chart1_list$"Airbnb Houses that User left reviews such as COVID, Remote Work, Workation and so on" <- first_chart(matched_dataframe)
+chart1_list$"Airbnb Houses that User left simple reviews (no word filter)" <- first_chart(seattle_listings)
+
+
+chart1_list
+```
+
+These charts show the price per night on the x-axis and the maximum number of people that can stay at the facility on the y-axis. One chart is sourced from a data frame for the past 12 months but utilizes a dataset of post-occupancy reviews filtered by relevant terms such as "COVID, COVID-19, and Remote Work". This helps to find Airbnb properties that have been used for specific purposes during the pandemic. Another is sourced from the original Seattle listings. 
+It is difficult to explain the differences in properties according to price since almost all facilities are homes. Still, the most distinctive difference between the two is in the capacity of the property. In the house used for pandemic refreshment and remote work, we can see that the demand is mainly concentrated in facilities that can accommodate up to four people, up to a maximum of $200 per night.
+Conversely, in the overview (seattle_listings) figure, we can see that facilities ranging from $400 to $500 per night are quite common, and demand is concentrated in facilities that accommodate between 4 and 8 people at most. It should be at least transparent that there has been a shift in demand for Airbnb, in the wake of the pandemic, especially for family vacation use and as a remote working place. In that sense, facilities for 12 or more people are only used three times, and Airbnb owners are likely to suffer from a demand that is unlikely to return.
+
+## Chart 2: 
+
+
+```{r chart 2, echo=FALSE}
+
+chart2_list <- list()
+chart2_list$"Airbnb Houses that User left reviews such as COVID, Remote Work, Workation and so on"<- second_chart(matched_dataframe)
+chart2_list$"Airbnb Houses that User left simple reviews (no word filter)" <- second_chart(seattle_listings)
+chart2_list
+```
+
+Chart 2 shows the average, minimum and maximum prices for each room type. The overall price averages are also represented in purple. Chart 1 shows a tremendous demand for an Entire home/apt, resulting in the overall average price and the average price of Entire home/apt being almost identical line. It is interesting to note that even in the second chart (chart2_overall), which included all of the listings without any filtering, there is practically no variation in the overall price average. Conversely, almost all of the outliers have disappeared from the first chart, as seen in the second chart. This could be read as a shift in demand for remote work and family time on weekends described in the summary table.  As revealed in Chart 1 and a pandemic has prevented people from going out and having parties, so the demand for huge property has been decreased significantly.
+
+## Chart 3: 
+
+```{r chart 3, echo=FALSE}
+chart3
+```
+
+This figure is a geographic representation of Airbnb's location in Seattle. The property dataset was filtered, and the filter conditions used the following words in the review comments left by users after January 1, 2020.
+
+- "COVID|COVID-19|coronavirus|covid|virus|pandemic|remote|remote work|workation|staycation"
+
+This filtering allows us to hypothesize that the facilities were used to refresh the pandemic, remote work, etc. The colors of the graphs are color-coded by the minimum number of nights set for each facility. As can be seen, most of the accommodations have a minimum stay requirement of between 20 and 30 days, i.e., it is offered in the form of monthly stays.
+
+Plus, if ｗe look closely at the marked locations, it is telling that most are located on land with good views, such as Lake Washington and Elliott Bay. Of course, there are still some users around downtown, as there were several facilities in the first place. Still, most of them are not for business use, so it seems that people prefer the pretty scenery and the less hustle and bustle, rather than being particularly aware of the accessibility. It's hard to say for sure if this trend is happening all over the world in Seattle alone. Still, I think the graphing took into account the Airbnb demographic's demand in this situation right now and the desire of owners to improve their cash flow as much as possible.
+
+In the final version, I'll use the Tokyo dataset to compare trends between the U.S. and Japan and then analyze further user demographic demand at this Airbnb stage.
+
